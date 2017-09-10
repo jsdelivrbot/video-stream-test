@@ -1,0 +1,27 @@
+.container-fluid {
+	padding-right: 0 !important; 
+	padding-left: 0 !important;
+}
+
+.bottom-navbar {
+	position: fixed !important;
+	bottom: 0px;
+	background-color: #303030 !important;
+}
+
+.navbar-thick {
+	height: 75px !important;
+}
+
+.form-column {
+	width: 100%;
+	padding: 5px 25px 5px 25px;
+}
+
+.sub-menu-grey {
+	background-color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.splash-tile-collection {
+	
+}
