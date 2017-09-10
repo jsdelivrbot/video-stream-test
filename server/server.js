@@ -1,6 +1,7 @@
 let app = require('express')();
 let request = require('request');
-let bodyParser = require('body-parser')
+let bodyParser = require('body-parser');
+let fs = require('fs');
 
 app.use(bodyParser.json());
 
@@ -11,8 +12,16 @@ app.use(function(req, res, next) {
   next();
 });
 
+function findResults() {
+  var items = fs.readFile('./data.json', 'utf8', (err, data) =>{
+    if (err) throw err;
+    console.log(JSON.parse(data));
+    return JSON.parse(data);
+  });
+}
+
 app.get('/test', function(req, res) {
-  res.sendStatus(200)
+  res.json(findResults())
 })
  
 app.listen(3000)
