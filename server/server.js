@@ -4,6 +4,7 @@ let bodyParser = require('body-parser');
 let fs = require('fs');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // TODO: CORS - Restrict to specific ports for security 
 app.use(function(req, res, next) {
@@ -12,16 +13,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-function findResults() {
-  var items = fs.readFile('./data.json', 'utf8', (err, data) =>{
-    if (err) throw err;
-    console.log(JSON.parse(data));
-    return JSON.parse(data);
-  });
-}
-
-app.get('/test', function(req, res) {
-  res.json(findResults())
+app.get('/data', function(req, res) {
+	fs.readFile('./data.json', 'utf8', (err, data) =>{
+		if (err) throw err;
+		res.json(JSON.parse(data))
+	});
 })
  
 app.listen(3000)

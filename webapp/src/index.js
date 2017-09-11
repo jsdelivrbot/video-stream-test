@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import ReduxPromise from 'redux-promise';
 
 /* MATERIAL UI */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -20,7 +21,7 @@ import Splash from './components/splash';
 
 import { buttonFactory } from './factories/buttons'
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 class App extends Component {
 	handleTouchTap() {console.log('handleTouchTap')} //TODO: Redirect to /
@@ -45,7 +46,6 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<AppBar title="Demo Streaming" iconElementLeft={(<div />)} iconElementRight={ this.renderButtons() } onLeftIconButtonTouchTap={this.toggleBurgerBar} onTitleTouchTap={ this.handleTouchTap }  />
-
 
 					<Switch>
 						<Route path="/movies" component={Movies}></Route>
