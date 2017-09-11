@@ -8,7 +8,6 @@ import {GridList, GridTile} from 'material-ui/GridList';
 
 import fetchSeries from '../actions'
 
-
 class Series extends Component {
 
 	componentWillMount() {
@@ -16,9 +15,9 @@ class Series extends Component {
 	}
 
 	renderTile(datum) {
-		console.log(datum)
+		const style = 'linear-gradient(to top, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.8) 70%,rgba(0,0,0,0) 100%)';
 		return ( 
-			<GridTile	key={datum.title} title={datum.title} subtitle={datum.releaseYear} onClick={() => this.props.history.push('movies')} >
+			<GridTile	key={datum.title} title={datum.title} subtitle={datum.releaseYear} onClick={() => this.props.history.push('movies')} titleBackground={style}>
 				<img src="https://netflowers.files.wordpress.com/2012/06/figpoh.jpg" />
 			</GridTile> 
 		)
@@ -41,12 +40,11 @@ class Series extends Component {
 		if(!this.props.series.entries.length) { return ( <div> Loading ... </div> ) }
 
 		return (
-			<div>
+			<div style={styles.root}>
 				<AppBar className="sub-menu-grey" title="Popular Series" iconElementLeft={(<div />)} />
-				<GridList cellHeight={180} style={styles.gridList} >
+				<GridList cellHeight={180} style={styles.gridList} cols={3}>
 					{this.props.series.entries.map(datum => this.renderTile(datum))}
     			</GridList>
-				<Link to="/">Back</Link>
 			</div>
 		) 
 	}
