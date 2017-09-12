@@ -37,13 +37,13 @@ class Series extends Component {
 		  	}
 		};
 
-		if(!this.props.series.entries.length) { return ( <div> Loading ... </div> ) }
+		if(!this.props.series.length) { return ( <div> Loading ... </div> ) }
 
 		return (
 			<div style={styles.root}>
 				<AppBar className="sub-menu-grey" title="Popular Series" iconElementLeft={(<div />)} />
 				<GridList cellHeight={180} style={styles.gridList} cols={3}>
-					{this.props.series.entries.map(datum => this.renderTile(datum))}
+					{this.props.series.map(datum => this.renderTile(datum))}
     			</GridList>
 			</div>
 		) 
