@@ -15,9 +15,9 @@ import FontIcon from 'material-ui/FontIcon';
 
 import reducers from './reducers';
 
-import Series from './components/series';
-import Movies  from './components/movies';
-import Splash from './components/splash';
+import Series from './containers/series';
+import Movies  from './containers/movies';
+import Splash from './containers/splash';
 
 import { buttonFactory } from './factories/buttons'
 

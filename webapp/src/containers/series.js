@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import AppBar from 'material-ui/AppBar';
-import {GridList, GridTile} from 'material-ui/GridList';
+
+import TileList from '../components/tile_list';
+import SubHeader from '../components/sub_header';
+
+
 
 import fetchSeries from '../actions'
 
@@ -12,15 +15,6 @@ class Series extends Component {
 
 	componentWillMount() {
 		this.props.fetchSeries();
-	}
-
-	renderTile(datum) {
-		const style = 'linear-gradient(to top, rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.8) 70%,rgba(0,0,0,0) 100%)';
-		return ( 
-			<GridTile key={datum.title} title={datum.title} subtitle={datum.releaseYear} onClick={() => this.props.history.push('movies')} titleBackground={style}>
-				<img src={datum.images['Poster Art'].url} />
-			</GridTile> 
-		)
 	}
 
 	render() {
@@ -41,15 +35,13 @@ class Series extends Component {
 		// Whats the best way of globally handling errors and displaying a message to the user. 
 		// It feels like it would be done at the reducer stage but reading around it doesnt seem to be
 		// the 'redux way' .... I will definitly be going away to reserch this some more.....
-		if(!(this.props.status === '200')) { return ( <div> Oops, something went wrong ... </div> ) }
+		if(this.props.status === '500') { return ( <div> Oops, something went wrong ... </div> ) }
 		if(!this.props.data) { return ( <div> Loading ... </div> ) }
 
 		return (
 			<div style={styles.root}>
-				<AppBar className="sub-menu-grey" title="Popular Series" iconElementLeft={(<div />)} />
-				<GridList cellHeight={180} style={styles.gridList} cols={3}>
-					{this.props.data.map(datum => this.renderTile(datum))}
-    			</GridList>
+				<SubHeader title="Popular Series" />
+				<TileList data={this.props.data} cols={3}></TileList>
 			</div>
 		) 
 	}
