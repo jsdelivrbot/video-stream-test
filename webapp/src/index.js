@@ -19,7 +19,7 @@ import Series from './containers/series';
 import Movies  from './containers/movies';
 import Splash from './containers/splash';
 
-import { buttonFactory } from './factories/buttons'
+import { buttonFactory } from './components/button'
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
@@ -29,11 +29,11 @@ class App extends Component {
 	freeTrial() { console.log('Free Trial') }
 
 	renderLoginButton() {
-		return ( buttonFactory('RaisedButton', 'Login', () => this.login.bind(this)) )
+		return ( buttonFactory('FlatButton', 'Login', () => this.login.bind(this)) )
 	}
 
 	renderFreeTrialButton() {
-		return ( buttonFactory('RaisedButton', 'Start Free Trial', () => this.freeTrial.bind(this)) )
+		return ( buttonFactory('FlatButton', 'Start Free Trial', () => this.freeTrial.bind(this)) )
 	}
 
 	renderButtons() {

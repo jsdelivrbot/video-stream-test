@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-
 import TileList from '../components/tile_list';
 import SubHeader from '../components/sub_header';
-
-
 
 import fetchSeries from '../actions'
 
@@ -19,16 +16,9 @@ class Series extends Component {
 
 	render() {
 		const styles = {
-		   	root: {
 		    	display: 'flex',
 		    	flexWrap: 'wrap',
-		    	justifyContent: 'space-around',
-		  	},
-		  	gridList: {
-		    	width: '75%',
-		    	overflowY: 'auto',
-		    	margin: '20px'
-		  	}
+		    	justifyContent: 'space-around'
 		};
 
 		// I get a bad code smell from this...
@@ -39,7 +29,7 @@ class Series extends Component {
 		if(!this.props.data) { return ( <div> Loading ... </div> ) }
 
 		return (
-			<div style={styles.root}>
+			<div style={styles}>
 				<SubHeader title="Popular Series" />
 				<TileList data={this.props.data} cols={3}></TileList>
 			</div>

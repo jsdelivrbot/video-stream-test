@@ -8,9 +8,6 @@ import AppBar from 'material-ui/AppBar';
 
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 
-import { textFieldFactory } from '../factories/inputs';
-
-
 class FormExample extends Component {
 
 	render() { 
