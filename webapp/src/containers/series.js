@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import TileList from '../components/tile_list';
 import SubHeader from '../components/sub_header';
 
-import fetchSeries from '../actions'
+import { fetchSeries } from '../actions'
 
 class Series extends Component {
 

@@ -52,7 +52,6 @@ class App extends Component {
 						<Route path="/series" component={Series}></Route>
 						<Route path="/" component={Splash}></Route>
 					</Switch>
-
 				</div>
 			</BrowserRouter>
 		)
