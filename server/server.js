@@ -37,12 +37,17 @@ function sortBy(a, b, key) {
 
 app.get('/series', function(req, res) {
 	fs.readFile('./data.json', 'utf8', (err, data) =>{
-		if (err) { throw err; }; //TODO: Errors need to be handeled properly
+		
+		if (err) { 
+			res.status(500).send('Oops, something broke'); throw err; 
+		}; //TODO: Errors need to be handeled properly
+
 		let payload = JSON.parse(data).entries
 			.filter(entry => filterByYear(entry, YEAR_LIMIT))
 			.filter(entry => filterByType(entry, TYPE_SERIES))
 			.slice(0, RETURN_LIMIT)
 			.sort((a, b) => sortBy(a, b, SORT_FIELD))
+		
 		res.json(payload);
 	});
 })
