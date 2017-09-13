@@ -1,8 +1,8 @@
-# Stan Coding Challenge
+# Video Library Challenge
 
 ## React / Redux + Material UI
 
-This project leverages syles and concepts from [material-ui], a react wrapper around Googles Material UI designs. 
+This project leverages a number of react components from [material-ui], a react wrapper around Googles [MaterialDesign]. 
 
 The project makes use of a simple node backend for serving up data for the UI.
 
@@ -31,11 +31,14 @@ The webapp runs on port 8080!
 * The footer needs to be added using the provided icons.
 * The code is currently not being bundeled into a dist folder. 
 * No unit tests have been added to the code base. 
+* No logging of requests made to the backend. Morgan?
 * Clicking on the Apps name "Demo Streaming" should navigate the user back to "/".
+* While some effort had been made to split up into smart & dumb components, more effort could be made here to genericise the production of dumb components ( factory pattern maybe?? ).
 * There is a significant ammount of code duplication between the "movie" and "series" pages. It would be nice to come up with a more generic solution.
 * I am currently unhappy with the pattern in place for handling errors in the http requests to the backend. Would like more time to investigate this and come  up with a more robust solution. 
 
 [material-ui]: <http://www.material-ui.com/>
 [npm]: <https://www.npmjs.com/>
 [node.js]: <http://nodejs.org>
+[MaterialDesign]: <https://material.io/guidelines/material-design/introduction.html>
 
